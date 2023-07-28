@@ -1,5 +1,5 @@
-import React from "react"
-import { styled } from "styled-components"
+import React from 'react'
+import { styled } from 'styled-components'
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -11,7 +11,7 @@ const StyledButton = styled.button<ButtonProps>`
   background-color: ${(props) => (props.isDisabled ? '#6D6D6D' : '#FF8A00')};
   height: 60px;
   border-radius: 2px;
-  color: #FFFFFF;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,10 +19,11 @@ const StyledButton = styled.button<ButtonProps>`
   font-weight: 500;
   border: none;
   &:hover {
-    background-color: ${(props) => (props.isDisabled ? '#6D6D6D' : '#ff8a00d1')};
-    cursor: ${(props) => (props.isDisabled ? 'default' : 'pointer')}
+    background-color: ${(props) =>
+      props.isDisabled ? '#6D6D6D' : '#ff8a00d1'};
+    cursor: ${(props) => (props.isDisabled ? 'default' : 'pointer')};
   }
-  
+
   @media (max-width: 992px) {
     height: 54px;
     font-size: 16px;
@@ -36,12 +37,18 @@ const StyledButton = styled.button<ButtonProps>`
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ isDisabled = false, onClick, ...props }, ref) => {
-
     const handleClick = () => {
       if (!isDisabled) onClick()
     }
 
-    return <StyledButton ref={ref} isDisabled={isDisabled} onClick={handleClick} {...props} />
+    return (
+      <StyledButton
+        ref={ref}
+        isDisabled={isDisabled}
+        onClick={handleClick}
+        {...props}
+      />
+    )
   }
 )
 
