@@ -5,7 +5,7 @@ import {
   StyledTextarea,
   TextareaPlaceHolder as PlaceHolder,
 } from './textarea-styling'
-import getVariantColor from '../../../utils/variantColor'
+import getVariantColor from '@/utils/variantColor'
 
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {

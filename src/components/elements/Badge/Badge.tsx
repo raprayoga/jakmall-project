@@ -3,10 +3,10 @@ import { styled } from 'styled-components'
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   isactive?: boolean
-  onClick: () => void
+  onClick?: () => void
 }
 
-const StyledBadge = styled.div<BadgeProps>`
+const StyledBadge = styled.div<{ isactive: boolean }>`
   background-color: ${(props) => (props.isactive ? '#FF8A00' : '#ff8a0033')};
   color: ${(props) => (props.isactive ? '#FFF' : '#FF8A00')};
   width: 30px;
@@ -21,9 +21,6 @@ const StyledBadge = styled.div<BadgeProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  &:hover {
-    cursor: ${(props) => (props.isactive ? 'default' : 'pointer')};
-  }
 
   @media (max-width: 992px) {
     width: 26px;
@@ -40,7 +37,11 @@ const StyledBadge = styled.div<BadgeProps>`
   }
 `
 
-function Badge({ isactive = false, onClick, ...props }: BadgeProps) {
+function Badge({
+  isactive = false,
+  onClick = () => null,
+  ...props
+}: BadgeProps) {
   const handleClick = () => {
     if (!isactive) onClick()
   }

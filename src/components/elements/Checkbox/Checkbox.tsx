@@ -1,9 +1,5 @@
 import React, { useMemo } from 'react'
-import {
-  StyledCheckbox,
-  StyledCheckboxWraper,
-  StyledCheckmark,
-} from './checkbox-styling'
+import { StyledCheckbox, StyledCheckmark } from './checkbox-styling'
 
 const getVariantColor = (variant: string) => {
   switch (variant) {

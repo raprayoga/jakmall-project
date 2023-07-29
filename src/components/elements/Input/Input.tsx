@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import { PlaceHolder, StyledInput, StyledInputWraper } from './input-styling'
+import getVariantColor from '@/utils/variantColor'
 import Icon from '../IconValidation'
-import getVariantColor from '../../../utils/variantColor'
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {

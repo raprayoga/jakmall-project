@@ -1,6 +1,6 @@
+import getVariantColor from '@/utils/variantColor'
 import React, { useMemo } from 'react'
 import { styled } from 'styled-components'
-import getVariantColor from '../../../utils/variantColor'
 
 const StyledCard = styled.div<CardProps>`
   display: flex;
