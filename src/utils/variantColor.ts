@@ -1,7 +1,7 @@
 const getVariantColor = (variant: string) => {
   switch (variant) {
     case 'default':
-      return '#ccc'
+      return '#00000066'
 
     case 'valid':
       return '#1BD97B'

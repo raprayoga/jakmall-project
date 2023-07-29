@@ -2,7 +2,8 @@ import { keyframes, styled } from 'styled-components'
 import { PlaceHolder } from '../Input/input-styling'
 
 const StyledTextarea = styled.textarea<{ color?: string }>`
-  height: 45px;
+  height: 100%;
+  width: 100%;
   flex-shrink: 0;
   border: 1px solid #ccc;
   border-color: ${(props) => props.color};
@@ -15,8 +16,9 @@ const StyledTextarea = styled.textarea<{ color?: string }>`
   padding-left: 15px;
   padding-right: 30px;
   padding-top: 20px;
+  outline: none;
   &:focus {
-    outline-color: ${(props) => props.color};
+    border-width: 2px;
   }
 
   @media (max-width: 992px) {

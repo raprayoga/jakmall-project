@@ -3,6 +3,7 @@ import { PlaceHolderProps } from './Input'
 
 const StyledInput = styled.input<{ color?: string }>`
   height: 45px;
+  width: 100%;
   flex-shrink: 0;
   border: 1px solid #ccc;
   border-color: ${(props) => props.color};
@@ -15,8 +16,9 @@ const StyledInput = styled.input<{ color?: string }>`
   padding-left: 15px;
   padding-right: 30px;
   padding-top: 15px;
+  outline: none;
   &:focus {
-    outline-color: ${(props) => props.color};
+    border-width: 2px;
   }
 
   @media (max-width: 992px) {
@@ -30,7 +32,8 @@ const StyledInput = styled.input<{ color?: string }>`
 
 const StyledInputWraper = styled.div`
   position: relative;
-  width: fit-content;
+  width: 100%;
+  height: 100%;
 `
 
 const PlaceHolder = styled.p<PlaceHolderProps>`
@@ -39,7 +42,6 @@ const PlaceHolder = styled.p<PlaceHolderProps>`
   top: 50%;
   margin-top: auto;
   color: ${(props) => props.color};
-  opacity: 0.4000000059604645;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
