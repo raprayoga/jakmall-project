@@ -1,37 +1,7 @@
 import React, { useState, useMemo } from 'react'
-import {
-  PlaceHolder,
-  StyledCheck,
-  StyledClose,
-  StyledInput,
-  StyledInputWraper,
-} from './input-styling'
-
-const getVariantColor = (variant: string) => {
-  switch (variant) {
-    case 'default':
-      return '#ccc'
-
-    case 'valid':
-      return '#1BD97B'
-
-    case 'invalid':
-      return '#FF8A00'
-  }
-}
-
-const Icon = ({ variant }: { variant: string }) => {
-  switch (variant) {
-    case 'default':
-      return <></>
-
-    case 'valid':
-      return <StyledCheck data-testid="chekIcon-element" />
-
-    case 'invalid':
-      return <StyledClose data-testid="closeIcon-element" />
-  }
-}
+import { PlaceHolder, StyledInput, StyledInputWraper } from './input-styling'
+import Icon from '../IconValidation'
+import getVariantColor from '../../../utils/variantColor'
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {

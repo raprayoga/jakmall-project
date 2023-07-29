@@ -1,7 +1,7 @@
 import { keyframes, styled } from 'styled-components'
-import { PlaceHolderProps } from './Input'
+import { PlaceHolder } from '../Input/input-styling'
 
-const StyledInput = styled.input<{ color?: string }>`
+const StyledTextarea = styled.textarea<{ color?: string }>`
   height: 45px;
   flex-shrink: 0;
   border: 1px solid #ccc;
@@ -14,7 +14,7 @@ const StyledInput = styled.input<{ color?: string }>`
   line-height: normal;
   padding-left: 15px;
   padding-right: 30px;
-  padding-top: 15px;
+  padding-top: 20px;
   &:focus {
     outline-color: ${(props) => props.color};
   }
@@ -28,38 +28,24 @@ const StyledInput = styled.input<{ color?: string }>`
   }
 `
 
-const StyledInputWraper = styled.div`
-  position: relative;
-  width: fit-content;
-`
-
-const PlaceHolder = styled.p<PlaceHolderProps>`
-  position: absolute;
+const TextareaPlaceHolder = styled(PlaceHolder)`
   left: 15px;
-  top: 50%;
-  margin-top: auto;
+  top: 30px;
   color: ${(props) => props.color};
-  opacity: 0.4000000059604645;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 0;
   animation-name: ${(props) => (props.isOnFocus || props.value ? toTop : '')};
-  animation-duration: 300ms;
-  animation-fill-mode: forwards;
 `
 
 const toTop = keyframes`
   from {
     left: 15px;
-    top: 50%;
+    top: 30px;
     font-size: 16px;
   }
 
   to {
-    top: 30%;
+    top: 15px;
     font-size: 13px;
   }
 `
 
-export { StyledInput, StyledInputWraper, PlaceHolder }
+export { StyledTextarea, TextareaPlaceHolder }
