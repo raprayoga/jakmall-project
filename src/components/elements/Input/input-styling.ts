@@ -23,10 +23,12 @@ const StyledInput = styled.input<{ color?: string }>`
 
   @media (max-width: 992px) {
     height: 41px;
+    font-size: 14px;
   }
 
   @media (max-width: 600px) {
     height: 37px;
+    font-size: 12px;
   }
 `
 

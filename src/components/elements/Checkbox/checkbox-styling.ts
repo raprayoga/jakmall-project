@@ -58,10 +58,18 @@ const StyledCheckmark = styled.span<{ checked?: boolean; color: string }>`
 const StyledCheckboxWraper = styled.label`
   display: block;
   position: relative;
-  padding-left: 35px;
+  padding-left: 30px;
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 22px;
   user-select: none;
+
+  @media (max-width: 992px) {
+    padding-left: 26px;
+  }
+
+  @media (max-width: 600px) {
+    padding-left: 22px;
+  }
 `
 export { StyledCheckbox, StyledCheckmark, StyledCheckboxWraper }

@@ -20,14 +20,6 @@ const StyledTextarea = styled.textarea<{ color?: string }>`
   &:focus {
     border-width: 2px;
   }
-
-  @media (max-width: 992px) {
-    height: 41px;
-  }
-
-  @media (max-width: 600px) {
-    height: 37px;
-  }
 `
 
 const TextareaPlaceHolder = styled(PlaceHolder)`

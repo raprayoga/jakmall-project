@@ -1,7 +1,8 @@
+import React from 'react'
 import Input from '@/components/elements/Input'
 import Textarea from '@/components/elements/Textarea'
-import React from 'react'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
+import { StyledContainer, StyledForm } from './deliveryform-styling'
 
 type Inputs = {
   email: string
@@ -20,8 +21,7 @@ export default function DeliveryForm() {
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <form
+    <StyledForm
       onSubmit={handleSubmit(onSubmit)}
       style={{
         display: 'flex',
@@ -30,8 +30,7 @@ export default function DeliveryForm() {
         rowGap: '10px',
       }}
     >
-      {/* register your input into the hook by invoking the "register" function */}
-      <div style={{ width: '45%' }}>
+      <StyledContainer>
         <Controller
           control={control}
           rules={{
@@ -52,9 +51,9 @@ export default function DeliveryForm() {
           )}
           name="email"
         />
-      </div>
+      </StyledContainer>
 
-      <div style={{ width: '45%' }}>
+      <StyledContainer>
         <Controller
           control={control}
           rules={{
@@ -71,9 +70,9 @@ export default function DeliveryForm() {
           )}
           name="dropshippername"
         />
-      </div>
+      </StyledContainer>
 
-      <div style={{ width: '45%' }}>
+      <StyledContainer>
         <Controller
           control={control}
           rules={{
@@ -97,9 +96,9 @@ export default function DeliveryForm() {
           )}
           name="phone"
         />
-      </div>
+      </StyledContainer>
 
-      <div style={{ width: '45%' }}>
+      <StyledContainer>
         <Controller
           control={control}
           rules={{
@@ -123,9 +122,9 @@ export default function DeliveryForm() {
           )}
           name="dropshipperphone"
         />
-      </div>
+      </StyledContainer>
 
-      <div style={{ width: '45%', height: '120px' }}>
+      <StyledContainer style={{ height: '120px' }}>
         <Controller
           control={control}
           rules={{
@@ -143,7 +142,7 @@ export default function DeliveryForm() {
           )}
           name="deliveryaddress"
         />
-      </div>
-    </form>
+      </StyledContainer>
+    </StyledForm>
   )
 }
