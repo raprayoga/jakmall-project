@@ -1,0 +1,67 @@
+import { styled } from 'styled-components'
+
+const StyledCheckbox = styled.input.attrs({ type: 'checkbox' })`
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+`
+
+const StyledCheckmark = styled.span<{ checked?: boolean; color: string }>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  border: solid ${(props) => props.color};
+  background-color: ${(props) => (props.checked ? props.color : '')};
+
+  &:after {
+    content: '';
+    position: absolute;
+    display: ${(props) => (props.checked ? 'block' : 'none')};
+    left: 7px;
+    top: 3px;
+    width: 4px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+  @media (max-width: 992px) {
+    height: 14px;
+    width: 14px;
+
+    &:after {
+      left: 5px;
+      top: 1px;
+      width: 3px;
+      height: 9px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    height: 12px;
+    width: 12px;
+
+    &:after {
+      left: 4px;
+      top: 0px;
+      width: 2px;
+      height: 8px;
+    }
+  }
+`
+
+const StyledCheckboxWraper = styled.label`
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+`
+export { StyledCheckbox, StyledCheckmark, StyledCheckboxWraper }

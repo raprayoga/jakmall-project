@@ -5,8 +5,8 @@ import Input from './index'
 const placeholder = 'Name'
 const inputText = 'Inputed text'
 
-describe('Render Button', () => {
-  test('sould render button correctly', async () => {
+describe('Render Input', () => {
+  test('sould render input correctly', async () => {
     const { rerender } = render(<Input placeholder={placeholder} />)
 
     const inputElement = screen.getByTestId('input-element')
