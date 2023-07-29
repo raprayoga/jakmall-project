@@ -12,6 +12,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.1",
+    "@mui/material": "^5.14.2",
     "@storybook/addon-actions": "^7.1.1",
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",

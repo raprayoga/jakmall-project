@@ -14,7 +14,6 @@ const StyledBadge = styled.div<BadgeProps>`
   flex-shrink: 0;
   border-radius: 15px;
   text-align: center;
-  font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
