@@ -14,7 +14,7 @@ import {
   StyledTitleContainer,
   StyledLinkBack,
   Container,
-} from '../main-styling'
+} from '@/components/templates/main-styling'
 
 interface DeliveryProps extends DeliveryFormProps, DeliverSummaryProps {
   handleCheckAsDropshipper: (e: any) => void

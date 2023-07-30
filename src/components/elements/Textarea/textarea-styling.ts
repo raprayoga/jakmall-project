@@ -1,5 +1,5 @@
 import { keyframes, styled } from 'styled-components'
-import { PlaceHolder } from '../Input/input-styling'
+import { PlaceHolder } from '@/components/elements/Input/input-styling'
 
 const StyledTextarea = styled.textarea<{ color?: string }>`
   height: 100%;

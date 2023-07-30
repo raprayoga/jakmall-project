@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
-import Icon from '../IconValidation'
-import { StyledInputWraper } from '../Input/input-styling'
+import Icon from '@/components/elements/IconValidation'
+import { StyledInputWraper } from '@/components/elements/Input/input-styling'
 import {
   StyledTextarea,
   TextareaPlaceHolder as PlaceHolder,
