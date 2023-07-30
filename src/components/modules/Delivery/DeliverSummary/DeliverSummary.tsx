@@ -5,7 +5,7 @@ import {
   StyledCountItem,
   StyledTotal,
   StyledCalculateFee,
-} from './deliversummary-styling'
+} from '@/components/layouts/summary-styling'
 import Button from '@/components/elements/Button'
 import { SubmitHandler, UseFormHandleSubmit } from 'react-hook-form'
 import { Inputs } from '@/pages/delivery'
@@ -15,6 +15,7 @@ export interface DeliverSummaryProps {
   onSubmit: SubmitHandler<Inputs>
   isSendAsDropshipper: boolean
   total: number
+  dropshipperFee: number
 }
 
 export default function DeliverSummary({
@@ -22,6 +23,7 @@ export default function DeliverSummary({
   onSubmit,
   isSendAsDropshipper,
   total,
+  dropshipperFee,
 }: DeliverSummaryProps) {
   return (
     <StyledContainer>
@@ -37,7 +39,7 @@ export default function DeliverSummary({
         {isSendAsDropshipper && (
           <StyledCalculateFee>
             <p>Dropshipping Fee</p>
-            <p>5,900</p>
+            <p>{new Intl.NumberFormat('en-US').format(dropshipperFee)}</p>
           </StyledCalculateFee>
         )}
         <StyledTotal>

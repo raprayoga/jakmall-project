@@ -7,22 +7,12 @@ import {
   StyledLeftForm,
   StyledRightForm,
 } from './deliveryform-styling'
-import { Controller, Control, FieldErrors } from 'react-hook-form'
+import { Controller, Control } from 'react-hook-form'
 import { Inputs } from '@/pages/delivery'
 
 export interface DeliveryFormProps {
   isSendAsDropshipper: boolean
   control: Control<Inputs, any>
-  errors: FieldErrors<Inputs>
-  dirtyFields: Partial<
-    Readonly<{
-      email?: boolean
-      phone?: boolean
-      dropshippername?: boolean
-      dropshipperphone?: boolean
-      deliveryaddress?: boolean
-    }>
-  >
 }
 
 function getVariant(dirty: boolean, error: boolean) {
@@ -34,8 +24,6 @@ function getVariant(dirty: boolean, error: boolean) {
 
 export default function DeliveryForm({
   control,
-  errors,
-  dirtyFields,
   isSendAsDropshipper,
 }: DeliveryFormProps) {
   return (
@@ -58,9 +46,12 @@ export default function DeliveryForm({
                 message: 'Entered value does not match email format',
               },
             }}
-            render={({ field: { onChange, onBlur, value } }) => (
+            render={({
+              field: { onChange, onBlur, value },
+              fieldState: { isDirty, error },
+            }) => (
               <Input
-                variant={getVariant(!!dirtyFields.email, !!errors.email)}
+                variant={getVariant(isDirty, !!error)}
                 placeholder="Email"
                 onBlur={onBlur}
                 onChange={onChange}
@@ -84,9 +75,12 @@ export default function DeliveryForm({
               minLength: 6,
               maxLength: 20,
             }}
-            render={({ field: { onChange, onBlur, value } }) => (
+            render={({
+              field: { onChange, onBlur, value },
+              fieldState: { isDirty, error },
+            }) => (
               <Input
-                variant={getVariant(!!dirtyFields.phone, !!errors.phone)}
+                variant={getVariant(isDirty, !!error)}
                 placeholder="Phone Number"
                 onBlur={onBlur}
                 onChange={onChange}
@@ -104,12 +98,12 @@ export default function DeliveryForm({
               required: true,
               maxLength: 120,
             }}
-            render={({ field: { onChange, onBlur, value } }) => (
+            render={({
+              field: { onChange, onBlur, value },
+              fieldState: { isDirty, error },
+            }) => (
               <Textarea
-                variant={getVariant(
-                  !!dirtyFields.deliveryaddress,
-                  !!errors.deliveryaddress
-                )}
+                variant={getVariant(isDirty, !!error)}
                 placeholder="Dropshipper Address"
                 onBlur={onBlur}
                 onChange={onChange}
@@ -129,12 +123,12 @@ export default function DeliveryForm({
               rules={{
                 required: true,
               }}
-              render={({ field: { onChange, onBlur, value } }) => (
+              render={({
+                field: { onChange, onBlur, value },
+                fieldState: { isDirty, error },
+              }) => (
                 <Input
-                  variant={getVariant(
-                    !!dirtyFields.dropshippername,
-                    !!errors.dropshippername
-                  )}
+                  variant={getVariant(isDirty, !!error)}
                   placeholder="Dropshipper name"
                   onBlur={onBlur}
                   onChange={onChange}
@@ -158,12 +152,12 @@ export default function DeliveryForm({
                 minLength: 6,
                 maxLength: 20,
               }}
-              render={({ field: { onChange, onBlur, value } }) => (
+              render={({
+                field: { onChange, onBlur, value },
+                fieldState: { isDirty, error },
+              }) => (
                 <Input
-                  variant={getVariant(
-                    !!dirtyFields.dropshipperphone,
-                    !!errors.dropshipperphone
-                  )}
+                  variant={getVariant(isDirty, !!error)}
                   placeholder="Dropshipper phone number"
                   onBlur={onBlur}
                   onChange={onChange}

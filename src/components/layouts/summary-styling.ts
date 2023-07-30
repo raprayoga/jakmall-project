@@ -66,6 +66,10 @@ const StyledCalculateFee = styled.div`
   line-height: normal;
   margin: 12px 0 12px 0;
 
+  & > p:first-child {
+    opacity: 0.6;
+  }
+
   & > p:last-child {
     font-weight: 700;
   }

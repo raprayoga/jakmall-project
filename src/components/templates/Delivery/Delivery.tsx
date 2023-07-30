@@ -1,19 +1,20 @@
 import React from 'react'
-import Tab from '../../modules/Tab'
-import Title from '../../elements/Title'
+import Tab from '@/components/modules/Tab'
+import Title from '@/components/elements/Title'
 import DeliveryForm, {
   DeliveryFormProps,
-} from '../../modules/Delivery/DeliveryForm/DeliveryForm'
+} from '@/components/modules/Delivery/DeliveryForm/DeliveryForm'
 import DeliverSummary, {
   DeliverSummaryProps,
-} from '../../modules/Delivery/DeliverSummary/DeliverSummary'
-import Checkbox, { StyledCheckboxWraper } from '../../elements/Checkbox'
-import Link from 'next/link'
+} from '@/components/modules/Delivery/DeliverSummary/DeliverSummary'
+import Checkbox, { StyledCheckboxWraper } from '@/components/elements/Checkbox'
 import {
   StyledMain,
   StyledContainer,
-  StyledTitleContaner,
-} from './delivery-styling'
+  StyledTitleContainer,
+  StyledLinkBack,
+  Container,
+} from '../main-styling'
 
 interface DeliveryProps extends DeliveryFormProps, DeliverSummaryProps {
   handleCheckAsDropshipper: (e: any) => void
@@ -21,28 +22,22 @@ interface DeliveryProps extends DeliveryFormProps, DeliverSummaryProps {
 
 export default function Delivery({
   control,
-  errors,
   handleSubmit,
   onSubmit,
   isSendAsDropshipper,
   handleCheckAsDropshipper,
-  dirtyFields,
   total,
+  dropshipperFee,
 }: DeliveryProps) {
   return (
-    <div style={{ maxWidth: '1100px', margin: 'auto', padding: '20px' }}>
+    <Container>
       <Tab step={1} />
       <StyledMain>
-        <Link
-          style={{ marginLeft: '28px', color: '#2d2a40cc', fontSize: '14px' }}
-          href={'/delivery'}
-        >
-          Back to cart
-        </Link>
+        <StyledLinkBack href={'/delivery'}>Back to cart</StyledLinkBack>
         <StyledContainer>
           <div>
-            <StyledTitleContaner>
-              <Title>Delivery details</Title>
+            <StyledTitleContainer>
+              <Title>Delivery details</Title>``
               <StyledCheckboxWraper
                 style={{ color: '#2d2a40cc', fontSize: '14px' }}
               >
@@ -53,11 +48,9 @@ export default function Delivery({
                   onChange={handleCheckAsDropshipper}
                 />
               </StyledCheckboxWraper>
-            </StyledTitleContaner>
+            </StyledTitleContainer>
             <DeliveryForm
               control={control}
-              errors={errors}
-              dirtyFields={dirtyFields}
               isSendAsDropshipper={isSendAsDropshipper}
             />
           </div>
@@ -67,10 +60,11 @@ export default function Delivery({
               onSubmit={onSubmit}
               isSendAsDropshipper={isSendAsDropshipper}
               total={total}
+              dropshipperFee={dropshipperFee}
             />
           </div>
         </StyledContainer>
       </StyledMain>
-    </div>
+    </Container>
   )
 }

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { styled } from 'styled-components'
 
 const StyledMain = styled.main`
@@ -40,11 +41,12 @@ const StyledContainer = styled.div`
   }
 `
 
-const StyledTitleContaner = styled.div`
+const StyledTitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 26px 23px 36px 0;
+
   @media (max-width: 600px) {
     flex-direction: column;
     align-items: start;
@@ -56,4 +58,26 @@ const StyledTitleContaner = styled.div`
   }
 `
 
-export { StyledMain, StyledContainer, StyledTitleContaner }
+const StyledLinkBack = styled(Link)`
+  margin-left: 28px;
+  color: #2d2a40cc;
+  font-size: 14px;
+
+  @media (max-width: 600px) {
+    margin-left: 0 !important;
+  }
+`
+
+const Container = styled.div`
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+`
+
+export {
+  StyledMain,
+  StyledContainer,
+  StyledTitleContainer,
+  StyledLinkBack,
+  Container,
+}
