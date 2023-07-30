@@ -27,14 +27,7 @@ export default function DeliveryForm({
   isSendAsDropshipper,
 }: DeliveryFormProps) {
   return (
-    <StyledForm
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        columnGap: '5px',
-      }}
-    >
+    <StyledForm>
       <StyledLeftForm>
         <StyledContainer>
           <Controller

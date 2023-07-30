@@ -15,12 +15,15 @@ const StoryComponent = ({ variant }: { variant: string }) => {
   }
 
   return (
-    <Textarea
-      placeholder="Address"
-      value={value}
-      onChange={(e) => handleOnChange(e)}
-      variant={variant}
-    />
+    <div style={{ width: '500px' }}>
+      <Textarea
+        placeholder="Address"
+        value={value}
+        onChange={(e) => handleOnChange(e)}
+        variant={variant}
+        maxLength={120}
+      />
+    </div>
   )
 }
 

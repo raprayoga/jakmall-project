@@ -42,4 +42,17 @@ const toTop = keyframes`
   }
 `
 
-export { StyledTextarea, TextareaPlaceHolder }
+const StyledTextareaWraper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`
+
+const CharAvail = styled.span`
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  color: #ff8a00;
+`
+
+export { StyledTextarea, TextareaPlaceHolder, StyledTextareaWraper, CharAvail }

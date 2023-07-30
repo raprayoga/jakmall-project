@@ -13,6 +13,7 @@ const StyledForm = styled.form`
   flex-wrap: wrap;
   justify-content: space-between;
   rowgap: 10px;
+  columngap: '5px';
 `
 
 const StyledLeftForm = styled.div`

@@ -1,9 +1,10 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import Icon from '@/components/elements/IconValidation'
-import { StyledInputWraper } from '@/components/elements/Input/input-styling'
 import {
   StyledTextarea,
   TextareaPlaceHolder as PlaceHolder,
+  CharAvail,
+  StyledTextareaWraper,
 } from './textarea-styling'
 import getVariantColor from '@/utils/variantColor'
 
@@ -21,17 +22,23 @@ const Textarea = ({
   value,
   placeholder,
   variant = 'default',
+  maxLength,
   ...props
 }: TextareaProps) => {
   const [onFocus, setOnFocus] = useState<boolean>(false)
+  const [charAvail, setCharAvail] = useState<number>(maxLength || 0)
 
   const color = useMemo(() => {
     const variantColor = getVariantColor(variant)
     return variantColor
   }, [variant])
 
+  useEffect(() => {
+    if (maxLength && value) setCharAvail(maxLength - value.toString().length)
+  }, [value])
+
   return (
-    <StyledInputWraper>
+    <StyledTextareaWraper>
       <StyledTextarea
         data-testid="textarea-element"
         color={color}
@@ -39,12 +46,14 @@ const Textarea = ({
         {...props}
         onFocus={() => setOnFocus(true)}
         onBlur={() => setOnFocus(false)}
+        maxLength={maxLength}
       />
       <PlaceHolder isOnFocus={onFocus} value={value} color={color}>
         {placeholder}
       </PlaceHolder>
       <Icon variant={variant} />
-    </StyledInputWraper>
+      {maxLength && <CharAvail>{charAvail}</CharAvail>}
+    </StyledTextareaWraper>
   )
 }
 Textarea.displayName = 'Textarea'
