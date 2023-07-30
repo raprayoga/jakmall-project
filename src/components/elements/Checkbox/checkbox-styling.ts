@@ -21,10 +21,10 @@ const StyledCheckmark = styled.span<{ checked?: boolean; color: string }>`
     content: '';
     position: absolute;
     display: ${(props) => (props.checked ? 'block' : 'none')};
-    left: 7px;
-    top: 3px;
-    width: 4px;
-    height: 10px;
+    left: 4px;
+    top: 0px;
+    width: 3px;
+    height: 9px;
     border: solid white;
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
@@ -35,10 +35,10 @@ const StyledCheckmark = styled.span<{ checked?: boolean; color: string }>`
     width: 14px;
 
     &:after {
-      left: 5px;
-      top: 1px;
-      width: 3px;
-      height: 9px;
+      left: 2px;
+      top: -2px;
+      width: 2px;
+      height: 8px;
     }
   }
 
@@ -47,10 +47,10 @@ const StyledCheckmark = styled.span<{ checked?: boolean; color: string }>`
     width: 12px;
 
     &:after {
-      left: 4px;
-      top: 0px;
+      left: 1px;
+      top: -3px;
       width: 2px;
-      height: 8px;
+      height: 7px;
     }
   }
 `
@@ -59,7 +59,6 @@ const StyledCheckboxWraper = styled.label`
   display: block;
   position: relative;
   padding-left: 30px;
-  margin-bottom: 12px;
   cursor: pointer;
   font-size: 22px;
   user-select: none;

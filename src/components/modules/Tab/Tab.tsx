@@ -1,5 +1,4 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import Badge from '@/components/elements/Badge'
 import {
   StyledBadgeTitle,
@@ -23,15 +22,15 @@ const badges = [
   },
 ]
 
-const Badges = () => {
-  const router = useRouter()
+interface BadgesProps extends React.HTMLAttributes<HTMLDivElement> {
+  step: number
+}
 
+const Badges = ({ step }: BadgesProps) => {
   return badges.map((badge) => (
     <>
       <StyledTabItem key={badge.number}>
-        <Badge isactive={router.pathname === '/' + badge.title}>
-          {badge.number}
-        </Badge>
+        <Badge isactive={badge.number <= step}>{badge.number}</Badge>
         <StyledBadgeTitle>{badge.title}</StyledBadgeTitle>
       </StyledTabItem>
       {badge.number < 3 && <StyledChevronRight />}
@@ -39,10 +38,10 @@ const Badges = () => {
   ))
 }
 
-function Tab({ ...props }: React.HTMLAttributes<HTMLDivElement>) {
+function Tab({ step, ...props }: BadgesProps) {
   return (
     <StyledTabWraper {...props}>
-      <Badges />
+      <Badges step={step} />
     </StyledTabWraper>
   )
 }

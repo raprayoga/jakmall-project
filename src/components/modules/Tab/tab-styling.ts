@@ -12,6 +12,9 @@ const StyledTabWraper = styled.div`
   align-items: center;
   padding-left: 35px;
   padding-right: 35px;
+  margin: auto;
+  position: relative;
+  z-index: 99;
 
   @media (max-width: 992px) {
     width: 400px;

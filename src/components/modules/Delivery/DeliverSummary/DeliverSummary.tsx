@@ -1,4 +1,3 @@
-import Button from '@/components/elements/Button'
 import React from 'react'
 import {
   StyledTitle,
@@ -7,8 +6,23 @@ import {
   StyledTotal,
   StyledCalculateFee,
 } from './deliversummary-styling'
+import Button from '@/components/elements/Button'
+import { SubmitHandler, UseFormHandleSubmit } from 'react-hook-form'
+import { Inputs } from '@/pages/delivery'
 
-export default function DeliverSummary() {
+export interface DeliverSummaryProps {
+  handleSubmit: UseFormHandleSubmit<Inputs, undefined>
+  onSubmit: SubmitHandler<Inputs>
+  isSendAsDropshipper: boolean
+  total: number
+}
+
+export default function DeliverSummary({
+  handleSubmit,
+  onSubmit,
+  isSendAsDropshipper,
+  total,
+}: DeliverSummaryProps) {
   return (
     <StyledContainer>
       <div>
@@ -20,15 +34,17 @@ export default function DeliverSummary() {
           <p>Cost of goods</p>
           <p>500,000</p>
         </StyledCalculateFee>
-        <StyledCalculateFee>
-          <p>Dropshipping Fee</p>
-          <p>5,900</p>
-        </StyledCalculateFee>
+        {isSendAsDropshipper && (
+          <StyledCalculateFee>
+            <p>Dropshipping Fee</p>
+            <p>5,900</p>
+          </StyledCalculateFee>
+        )}
         <StyledTotal>
           <p>Total</p>
-          <p>505,900</p>
+          <p>{new Intl.NumberFormat('en-US').format(total)}</p>
         </StyledTotal>
-        <Button style={{ width: '100%' }} onClick={() => null}>
+        <Button style={{ width: '100%' }} onClick={handleSubmit(onSubmit)}>
           Continue to Payment
         </Button>
       </div>
