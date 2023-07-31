@@ -29,6 +29,7 @@ export default function Payment({
   shipmentServices,
   paymentServices,
   costOfGood,
+  isBusy,
 }: PaymentProps) {
   return (
     <Container>
@@ -57,6 +58,7 @@ export default function Payment({
               shipmentSelected={shipmentSelected}
               paymentSelected={paymentSelected}
               costOfGood={costOfGood}
+              isBusy={isBusy}
             />
           </div>
         </StyledContainer>

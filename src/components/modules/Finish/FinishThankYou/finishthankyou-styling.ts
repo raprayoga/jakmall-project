@@ -33,7 +33,7 @@ const StyledButtonToHome = styled.p`
   font-weight: 500;
   line-height: normal;
   opacity: 0.6;
-  cusor: pointer;
+  cursor: pointer;
 `
 
 export { StyledContainer, StyledDescript, StyledButtonToHome }

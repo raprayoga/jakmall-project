@@ -14,16 +14,19 @@ export type Inputs = {
 }
 
 export default function DeliveryPage() {
+  const router = useRouter()
   const costOfGood = 500000
   const dropshipperFee = 5900
+  const [isBusy, setIsBusy] = useState<boolean>(false)
   const { control, handleSubmit, setValue } = useForm<Inputs>({
     mode: 'onChange',
   })
-  const router = useRouter()
   const [isSendAsDropshipper, setIsSendAsDropshipper] = useState<boolean>(false)
   const [total, setTotal] = useState<number>(500000)
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    setIsBusy(true)
+    console.log('BUSY')
     localStorage.setItem('form', JSON.stringify(data))
     localStorage.setItem('total-price', JSON.stringify(total))
     const itemAsDropshipper: SetItemAsDropshipper = {
@@ -33,6 +36,7 @@ export default function DeliveryPage() {
     localStorage.setItem('asdropshipper', JSON.stringify(itemAsDropshipper))
 
     router.push('/payment')
+    setIsBusy(false)
   }
 
   const handleCheckAsDropshipper = () => {
@@ -62,6 +66,7 @@ export default function DeliveryPage() {
       total={total}
       dropshipperFee={dropshipperFee}
       costOfGood={costOfGood}
+      isBusy={isBusy}
     />
   )
 }

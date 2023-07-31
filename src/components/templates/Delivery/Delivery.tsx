@@ -29,6 +29,7 @@ export default function Delivery({
   total,
   dropshipperFee,
   costOfGood,
+  isBusy,
 }: DeliveryProps) {
   return (
     <Container>
@@ -63,6 +64,7 @@ export default function Delivery({
               total={total}
               dropshipperFee={dropshipperFee}
               costOfGood={costOfGood}
+              isBusy={isBusy}
             />
           </div>
         </StyledContainer>

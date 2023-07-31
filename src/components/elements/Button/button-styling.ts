@@ -1,4 +1,4 @@
-import { styled } from 'styled-components'
+import { keyframes, styled } from 'styled-components'
 import { ButtonProps } from './Button'
 
 const StyledButton = styled.button<ButtonProps>`
@@ -14,8 +14,9 @@ const StyledButton = styled.button<ButtonProps>`
   border: none;
   &:hover {
     background-color: ${(props) =>
-      props.isdisabled ? '#6D6D6D' : '#ff8a00d1'};
-    cursor: ${(props) => (props.isdisabled ? 'default' : 'pointer')};
+      props.isdisabled || props.isLoading ? '' : '#ff8a00d1'};
+    cursor: ${(props) =>
+      props.isdisabled || props.isLoading ? 'default' : 'pointer'};
   }
 
   @media (max-width: 992px) {
@@ -29,4 +30,23 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `
 
-export { StyledButton }
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`
+
+const StyledSvgLoading = styled.svg`
+  width: 60%;
+  height: 60%;
+  display: inline;
+  margin: auto;
+  vertical-align: middle;
+  color-white;
+  animation: ${spin} 1s linear infinite;
+`
+
+export { StyledButton, StyledSvgLoading }
