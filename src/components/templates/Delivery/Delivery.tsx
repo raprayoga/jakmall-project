@@ -28,6 +28,7 @@ export default function Delivery({
   handleCheckAsDropshipper,
   total,
   dropshipperFee,
+  costOfGood,
 }: DeliveryProps) {
   return (
     <Container>
@@ -37,7 +38,7 @@ export default function Delivery({
         <StyledContainer>
           <div>
             <StyledTitleContainer>
-              <Title>Delivery details</Title>``
+              <Title>Delivery details</Title>
               <StyledCheckboxWraper
                 style={{ color: '#2d2a40cc', fontSize: '14px' }}
               >
@@ -61,6 +62,7 @@ export default function Delivery({
               isSendAsDropshipper={isSendAsDropshipper}
               total={total}
               dropshipperFee={dropshipperFee}
+              costOfGood={costOfGood}
             />
           </div>
         </StyledContainer>

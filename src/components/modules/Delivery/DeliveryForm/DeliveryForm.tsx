@@ -101,6 +101,7 @@ export default function DeliveryForm({
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
+                maxLength={120}
               />
             )}
             name="deliveryaddress"

@@ -16,6 +16,7 @@ export interface DeliverSummaryProps {
   isSendAsDropshipper: boolean
   total: number
   dropshipperFee: number
+  costOfGood: number
 }
 
 export default function DeliverSummary({
@@ -24,6 +25,7 @@ export default function DeliverSummary({
   isSendAsDropshipper,
   total,
   dropshipperFee,
+  costOfGood,
 }: DeliverSummaryProps) {
   return (
     <StyledContainer>
@@ -34,7 +36,7 @@ export default function DeliverSummary({
       <div>
         <StyledCalculateFee>
           <p>Cost of goods</p>
-          <p>500,000</p>
+          <p>{new Intl.NumberFormat('en-US').format(costOfGood)}</p>
         </StyledCalculateFee>
         {isSendAsDropshipper && (
           <StyledCalculateFee>

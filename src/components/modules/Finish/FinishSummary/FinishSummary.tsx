@@ -6,7 +6,6 @@ import {
   StyledTotal,
   StyledCalculateFee,
 } from '@/components/layouts/summary-styling'
-import Button from '@/components/elements/Button'
 import { SubmitHandler, UseFormHandleSubmit } from 'react-hook-form'
 import { Inputs } from '@/pages/payment'
 import {
@@ -17,11 +16,9 @@ import {
 import {
   StyledEstimateHr,
   StyledEstimateWraper,
-} from './paymentsummary-styling'
+} from '../../Payment/PaymentSummary/paymentsummary-styling'
 
-export interface PaymentSummaryProps {
-  handleSubmit: UseFormHandleSubmit<Inputs, undefined>
-  onSubmit: SubmitHandler<Inputs>
+export interface FinishSummaryProps {
   total: number
   itemAsDropshipper: SetItemAsDropshipper
   shipmentSelected: ShipmentService
@@ -29,15 +26,13 @@ export interface PaymentSummaryProps {
   costOfGood: number
 }
 
-export default function DeliverSummary({
-  handleSubmit,
-  onSubmit,
+export default function FinishSummary({
   total,
   itemAsDropshipper,
   shipmentSelected,
   paymentSelected,
   costOfGood,
-}: PaymentSummaryProps) {
+}: FinishSummaryProps) {
   return (
     <StyledContainer>
       <div>
@@ -50,6 +45,17 @@ export default function DeliverSummary({
               <p>Delivery estimation</p>
               <p>
                 {shipmentSelected.time} by {shipmentSelected.service}
+              </p>
+            </StyledEstimateWraper>
+          </>
+        )}
+        {paymentSelected.service && (
+          <>
+            <StyledEstimateHr />
+            <StyledEstimateWraper>
+              <p>Paymetn Method</p>
+              <p>
+                {paymentSelected.service} by {paymentSelected.service}
               </p>
             </StyledEstimateWraper>
           </>
@@ -68,26 +74,19 @@ export default function DeliverSummary({
             </p>
           </StyledCalculateFee>
         )}
-        {shipmentSelected.service && (
-          <StyledCalculateFee>
-            <p>
-              <span style={{ fontWeight: '700' }}>
-                {shipmentSelected.service}
-              </span>{' '}
-              shipment
-            </p>
-            <p>
-              {new Intl.NumberFormat('en-US').format(shipmentSelected.price)}
-            </p>
-          </StyledCalculateFee>
-        )}
+        <StyledCalculateFee>
+          <p>
+            <span style={{ fontWeight: '700' }}>
+              {shipmentSelected.service}
+            </span>{' '}
+            shipment
+          </p>
+          <p>{new Intl.NumberFormat('en-US').format(shipmentSelected.price)}</p>
+        </StyledCalculateFee>
         <StyledTotal>
           <p>Total</p>
           <p>{new Intl.NumberFormat('en-US').format(total)}</p>
         </StyledTotal>
-        <Button style={{ width: '100%' }} onClick={handleSubmit(onSubmit)}>
-          Pay {paymentSelected.service ? `with ${paymentSelected.service}` : ''}
-        </Button>
       </div>
     </StyledContainer>
   )

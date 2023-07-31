@@ -28,6 +28,7 @@ export default function Payment({
   itemAsDropshipper,
   shipmentServices,
   paymentServices,
+  costOfGood,
 }: PaymentProps) {
   return (
     <Container>
@@ -55,6 +56,7 @@ export default function Payment({
               itemAsDropshipper={itemAsDropshipper}
               shipmentSelected={shipmentSelected}
               paymentSelected={paymentSelected}
+              costOfGood={costOfGood}
             />
           </div>
         </StyledContainer>

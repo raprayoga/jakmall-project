@@ -61,6 +61,7 @@ export default function DeliveryPage() {
       handleCheckAsDropshipper={handleCheckAsDropshipper}
       total={total}
       dropshipperFee={dropshipperFee}
+      costOfGood={costOfGood}
     />
   )
 }

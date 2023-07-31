@@ -2,18 +2,14 @@ import { styled } from 'styled-components'
 
 const StyledContainer = styled.div`
   width: 100%;
-
-  @media (max-width: 600px) {
-    width: 100%;
-  }
 `
 
 const StyledForm = styled.form`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  rowgap: 10px;
-  columngap: '5px';
+  row-gap: 10px;
+  column-gap: 5px;
 `
 
 const StyledLeftForm = styled.div`

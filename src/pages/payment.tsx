@@ -28,7 +28,6 @@ const paymentServices: PaymentService[] = [
 
 export default function PaymentPage() {
   const costOfGood = 500000
-  const dropshipperFee = 5900
   const {
     control,
     handleSubmit,
@@ -39,6 +38,8 @@ export default function PaymentPage() {
   const [total, setTotal] = useState<number>(500000)
   const [shipmentSelected, setShipmentSelected] = useState<ShipmentService>({})
   const [paymentSelected, setPaymentSelected] = useState<PaymentService>({})
+  const [itemAsDropshipper, setItemAsDropshipper] =
+    useState<SetItemAsDropshipper>({})
 
   const onSubmit: SubmitHandler<Inputs> = () => {
     localStorage.setItem('payment', JSON.stringify(paymentSelected))
@@ -47,9 +48,6 @@ export default function PaymentPage() {
 
     router.push('/finish')
   }
-
-  const [itemAsDropshipper, setItemAsDropshipper] =
-    useState<SetItemAsDropshipper>({})
 
   const handleSelectShipment = (e: ShipmentService) => {
     setShipmentSelected(e)
@@ -62,6 +60,8 @@ export default function PaymentPage() {
 
   useEffect(() => {
     const total = getItemFromLocalStorage('total-price') || 0
+    if (!total) router.back()
+
     setTotal(total)
     setCostnfee(total)
 
@@ -83,6 +83,7 @@ export default function PaymentPage() {
       itemAsDropshipper={itemAsDropshipper}
       shipmentServices={shipmentServices}
       paymentServices={paymentServices}
+      costOfGood={costOfGood}
     />
   )
 }
