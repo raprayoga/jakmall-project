@@ -17,6 +17,7 @@ export interface DeliverSummaryProps {
   total: number
   dropshipperFee: number
   costOfGood: number
+  isBusy: boolean
 }
 
 export default function DeliverSummary({
@@ -26,6 +27,7 @@ export default function DeliverSummary({
   total,
   dropshipperFee,
   costOfGood,
+  isBusy,
 }: DeliverSummaryProps) {
   return (
     <StyledContainer>
@@ -48,7 +50,11 @@ export default function DeliverSummary({
           <p>Total</p>
           <p>{new Intl.NumberFormat('en-US').format(total)}</p>
         </StyledTotal>
-        <Button style={{ width: '100%' }} onClick={handleSubmit(onSubmit)}>
+        <Button
+          style={{ width: '100%' }}
+          onClick={handleSubmit(onSubmit)}
+          isLoading={isBusy}
+        >
           Continue to Payment
         </Button>
       </div>

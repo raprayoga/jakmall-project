@@ -27,6 +27,7 @@ export interface PaymentSummaryProps {
   shipmentSelected: ShipmentService
   paymentSelected: PaymentService
   costOfGood: number
+  isBusy: boolean
 }
 
 export default function DeliverSummary({
@@ -37,6 +38,7 @@ export default function DeliverSummary({
   shipmentSelected,
   paymentSelected,
   costOfGood,
+  isBusy,
 }: PaymentSummaryProps) {
   return (
     <StyledContainer>
@@ -85,7 +87,11 @@ export default function DeliverSummary({
           <p>Total</p>
           <p>{new Intl.NumberFormat('en-US').format(total)}</p>
         </StyledTotal>
-        <Button style={{ width: '100%' }} onClick={handleSubmit(onSubmit)}>
+        <Button
+          style={{ width: '100%' }}
+          onClick={handleSubmit(onSubmit)}
+          isLoading={isBusy}
+        >
           Pay {paymentSelected.service ? `with ${paymentSelected.service}` : ''}
         </Button>
       </div>

@@ -34,6 +34,7 @@ export default function PaymentPage() {
     formState: { errors },
   } = useForm<Inputs>({ mode: 'onChange' })
   const router = useRouter()
+  const [isBusy, setIsBusy] = useState<boolean>(false)
   const [costnfee, setCostnfee] = useState<number>(500000)
   const [total, setTotal] = useState<number>(500000)
   const [shipmentSelected, setShipmentSelected] = useState<ShipmentService>({})
@@ -42,11 +43,13 @@ export default function PaymentPage() {
     useState<SetItemAsDropshipper>({})
 
   const onSubmit: SubmitHandler<Inputs> = () => {
+    setIsBusy(true)
     localStorage.setItem('payment', JSON.stringify(paymentSelected))
     localStorage.setItem('shipment', JSON.stringify(shipmentSelected))
     localStorage.setItem('total-price', JSON.stringify(total))
 
     router.push('/finish')
+    setIsBusy(false)
   }
 
   const handleSelectShipment = (e: ShipmentService) => {
@@ -84,6 +87,7 @@ export default function PaymentPage() {
       shipmentServices={shipmentServices}
       paymentServices={paymentServices}
       costOfGood={costOfGood}
+      isBusy={isBusy}
     />
   )
 }

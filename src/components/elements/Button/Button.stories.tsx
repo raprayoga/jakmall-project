@@ -37,3 +37,18 @@ export const Disabled: Story = {
     )
   },
 }
+
+export const Loading: Story = {
+  render: (args) => {
+    return (
+      <Button
+        style={{ width: '300px' }}
+        {...args}
+        onClick={action('onCLick!')}
+        isLoading
+      >
+        Button Disabled
+      </Button>
+    )
+  },
+}
