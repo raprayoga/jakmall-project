@@ -2,7 +2,6 @@ import { styled } from 'styled-components'
 
 const StyledTitle = styled.h3`
   color: #ff8a00;
-  font-family: Montserrat;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;

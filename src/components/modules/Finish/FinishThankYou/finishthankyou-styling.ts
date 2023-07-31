@@ -28,7 +28,6 @@ const StyledDescript = styled.div`
 
 const StyledButtonToHome = styled.p`
   color: #000;
-  font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

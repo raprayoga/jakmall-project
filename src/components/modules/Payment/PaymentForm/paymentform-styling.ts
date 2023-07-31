@@ -20,20 +20,21 @@ const StyledRadioCard = styled(Card)`
   row-gap: 2px;
   opacity: ${(props) => (props.variant === 'valid' ? '1' : '0.6')};
 
-  & > p:first-child {
-    color: #000;
-    font-size: 13px;
+  & > p {
     font-style: normal;
-    font-weight: 500;
     line-height: normal;
-  }
 
-  & > p:last-child {
-    color: #2d2a40;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+    &:first-child {
+      color: #000;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    &:last-child {
+      color: #2d2a40;
+      font-size: 16px;
+      font-weight: 700;
+    }
   }
 `
 

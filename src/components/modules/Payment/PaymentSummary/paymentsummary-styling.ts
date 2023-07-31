@@ -7,20 +7,22 @@ const StyledEstimateHr = styled.hr`
 `
 
 const StyledEstimateWraper = styled.div`
-  & > p:first-child {
-    color: #000;
-    font-size: 14px;
+  & > p {
     font-style: normal;
-    font-weight: 400;
     line-height: normal;
-  }
-  & > p:last-child {
-    margin-top: 4px;
-    color: #1bd97b;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+
+    &:first-child {
+      color: #000;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    &:last-child {
+      margin-top: 4px;
+      color: #1bd97b;
+      font-size: 16px;
+      font-weight: 500;
+    }
   }
 `
 
